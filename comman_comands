@@ -1,0 +1,47 @@
+#Pulling an Image
+docker image pull <IMAGE_NAME>
+
+#Run an image with a command
+docker run <IMAGE_NAME> <COMMAND>
+
+#Show containers with Id Image name and Command
+docker container ls -l --format 'table {{.ID}}\t{{.Image}}\t{{.Command}}'
+
+#Diff of a container with base Image
+docker container diff <CONTAINER_ID> | less
+
+#Create new Image from a container
+docker container commit -m "<MSG>" <CONTAINER_ID> <IMAGE_NAME:TAG>
+
+#Show image in local cache
+docker image ls --format '<FORMAT>' <IMAGE_NAME> 
+
+#Show image history
+docker image history <IMAGE_NAME>
+
+#Dumb container file sytems to a tar archive
+docker container export -o <ARCHIVE_NAME.tar> <CONTAINER_ID>
+
+#Import content from a tar archive file
+docker image import <ARCHIVE_FILE.tar> <IMAGE_NAME:TAG>
+
+#Start a container
+docker container start <CONTAINER_ID>
+
+#Run a command within an existing running container.
+docker exec -i -t <CONTAINER_ID> <COMMAND>
+
+#Build an image from docker file
+docker image build --tag <IMAGE_NAME> <DOCKER_FILE_DIR>
+
+#stop a container
+docker container stop <CONTAINER_ID>
+
+#Remove a container
+docker container rm <CONTAINER_ID>
+
+#Remove all stopped containers
+docker container prune
+
+#Remove all unused stuff
+docker system prune --volumes

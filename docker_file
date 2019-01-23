@@ -1,0 +1,25 @@
+#Choose base image
+FROM <IMAGE_NAME:TAG>
+
+#Execute a command inside container
+RUN <command parametr1 ...>
+RUN <["executable", "parameter1", ...]
+
+#Add artefacts to the image
+COPY <src> ... <dst>
+COPY ["<src>", ..., "<dst>"]
+
+#Define a default command
+#Define parameters to ENTRYPOINT
+CMD ["<command>", <"parameter1>"", ...]
+
+#Define a executeable(like CMD)
+ENTRYPOINT ["<executable>", <"parametr1>", ...]
+
+#Define commandto test container health
+HEALTHCHECK [options] CMD <command>
+HEALTHCHECK NONE
+
+#Deferring an Instruction
+ONBUILD <instruction>
+
